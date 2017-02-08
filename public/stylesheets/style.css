@@ -1,8 +1,85 @@
 body {
-  padding: 50px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
 }
 
 a {
   color: #00B7FF;
 }
+
+.app-footer {
+  color: lightslategray;
+  text-align: center;
+  font-size: 12px;
+  bottom: 0;
+  height: 40px;
+  margin-top: 40px;
+}
+
+.app-navbar {
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+  background: #66ffcc;
+}
+
+.nav-items {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.nav-items a {
+  text-decoration: none;
+}
+
+.nav-item {
+  height: 35px;
+  width: 65px;
+  justify-content: center;
+  display: flex;
+  align-items: center;
+  color: black;
+}
+.nav-item:hover {
+  color: grey; 
+}
+
+.app-navbar {
+  border: solid 1px black;
+}
+
+.login-container {
+  height:300px;
+  max-width: 450px;
+  margin: 25px auto;
+  border:solid 1px black;
+  padding: 20px;
+  display:flex;
+  justify-content: center;
+  flex-direction: column;
+  background: #66ffcc;
+}
+
+.login-button, .login-email, .login-password {
+  width: 250px;
+  height: 45px;
+  border-radius: 3px;
+  border:solid 1px black;
+  margin: 1px auto;
+}
+.login-email, .login-password {
+  background-color:#f0f0f0;
+  border:0px;
+  -webkit-box-shadow:none;
+  box-shadow:none;
+  position:relative;
+  -webkit-font-smoothing:antialiased;
+  -moz-osx-font-smoothing:grayscale;
+  border-radius:3px;font-weight:bold;
+  padding:10px;
+  -webkit-box-sizing:border-box;
+  box-sizing:border-box;width:70%;color:#333;
+  font-size:14px;
+  outline:none;
+}
+
