@@ -1,0 +1,18 @@
+extends layout
+
+block content
+  .app-navbar
+    .nav-items
+      for 
+      a(href="/")
+        .nav-item Main
+      a(href="/login") 
+        .nav-item Log In
+      a(href="/chat")
+        .nav-item Chat
+  
+  .login-container
+    h1 Welcome, please login or create an account.
+    input(class="login-email", type="text", placeholder="Email")
+    input(class="login-password", type="text", placeholder="Password")
+    button(class="login-button") Log In
