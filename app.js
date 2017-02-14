@@ -1,6 +1,6 @@
 var express = require('express');
 var path = require('path');
-//var favicon = require('serve-favicon');
+var favicon = require('serve-favicon');
 var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
@@ -9,8 +9,6 @@ var session = require('client-sessions');
 var mongoose = require('mongoose');
 
 var middleware = require('./middleware');
-//var utils = require('./utils');
-
 var index = require('./routes/index');
 var users = require('./routes/users');
 var login = require('./routes/login');
@@ -18,7 +16,6 @@ var chat = require('./routes/chat');
 var register = require('./routes/register');
 
 var app = express();
-
 /**
  * Given a user object:
  *
@@ -44,8 +41,6 @@ module.exports.createUserSession = function(req, res) {
   res.locals.user = cleanUser;
 };
  */
-
-
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'jade');
@@ -58,10 +53,10 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
+//mongodb database connection setup
 mongoose.Promise = global.Promise;
 mongoose.connect('mongodb://localhost/chatroom');
 require('./models');
-
 var db = mongoose.connection;
 db.on('error', console.error.bind(console, 'connection error'));
 db.once('open', console.log.bind(console, 'connected to database'));
@@ -74,20 +69,20 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(session({
     cookieName: 'session',
     requestKey: 'ourSessionKey',
-    secret: 'keyboard cat',
+    secret: 'keyboard surfer',
     duration: 30 * 60 * 1000,
     activeDuration: 5 * 60 * 1000,
 }));
 
 //app.use(csrf());
-app.use(middleware.simpleAuth);
+//app.use(middleware.simpleAuth);
 
 // routes
 app.use('/', index);
 app.use('./routes/chat', chat);
 app.use('./routes/login', login);
-app.use('./routes/users', users);
-app.use('./routes/register', register);
+app.use('./routes/users/login', users);
+app.use('./routes/users/register', register);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

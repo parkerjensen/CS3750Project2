@@ -10,6 +10,7 @@ router.get('/', function(req, res, next) {
  *
  * Once a user is logged in, they will be sent to the dashboard page.
  */
+/*
 router.post('/register', function(req, res) {
   var salt = bcrypt.genSaltSync(10);
   var hash = bcrypt.hashSync(req.body.password, salt);
@@ -35,5 +36,6 @@ router.post('/register', function(req, res) {
     }
   });
 });
+*/
 
 module.exports = router;

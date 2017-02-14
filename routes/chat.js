@@ -1,9 +1,10 @@
 var express = require('express');
 var router = express.Router();
 
-router(function(req, res, next) {
+router.get(function(req, res, next) {
   if( ! req.mySessionKey.userId ){
     res.redirect('/users/login');
+    //res.redirect('/login');
   } else {
     next();
   }
