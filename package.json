@@ -8,8 +8,8 @@
   "dependencies": {
     "bcryptjs": "^2.4.3",
     "body-parser": "~1.15.2",
-    "client-sessions": "^0.7.0",
     "cookie-parser": "~1.4.3",
+    "cookie-session": "^2.0.0-alpha.3",
     "csurf": "^1.9.0",
     "debug": "~2.2.0",
     "express": "~4.14.0",
