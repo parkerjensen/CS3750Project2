@@ -3,13 +3,10 @@ extends layout
 block content
   .app-navbar
     .nav-items
-      for 
-      a(href="/")
-        .nav-item Main
-      a(href="/login") 
-        .nav-item Log In
-      a(href="/chat")
-        .nav-item Chat
+      each item in nav
+        a(href=item.link)
+          .nav-item= item.text
+  
   h1 Assignment 2
   p In this assignment you will be creating a real-time social networking application. Again, this will be a web app that you will design and create from the ground up using the specified stack. Try to take what you have learned from Project 1 and use it to make this project more manageable and easier to tackle.
 
